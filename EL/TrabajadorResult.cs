@@ -2,7 +2,11 @@
 {
     public class TrabajadorResult
     {
-        public string? Property1 { get; set; }
-        public Int32 Property2{ get; set; }
+        public TrabajadorResult()
+        {
+            Lista = new List<Trabajador>();
+        }
+        public List<Trabajador> Lista { get; set; }
+        public string? message_error { get; set; }
     }
 }

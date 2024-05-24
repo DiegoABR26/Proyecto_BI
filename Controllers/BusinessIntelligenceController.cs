@@ -22,11 +22,17 @@ namespace Proyect_BI.Controllers
         //    return Ok(results);
         //}
 
-        [HttpGet("GetTipoHorarios")]
+        [HttpPost("GetTipoHorarios")]
         public ResultHorario GetTipoHorarios(RequestTipoHorario requestTipoHorario)
         {
 
             return _trabajadorBL.GetResultsFromStoredProcedureAsync2(requestTipoHorario);
+        }
+
+        [HttpPost("InsertTrabajador")]
+        public string InsertTrabajador(Trabajador requestTrabajador)
+        {
+            return _trabajadorBL.InsertTrabajador(requestTrabajador);
         }
 
 
