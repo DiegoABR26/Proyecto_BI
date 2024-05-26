@@ -15,26 +15,41 @@ namespace Proyect_BI.Controllers
             _trabajadorBL = trabajadoresBL;
         }
 
-        //[HttpGet("GetTrabajadores")]
-        //public async Task<ActionResult<List<TrabajadorResult>>> GetTrabajadores([FromQuery] string param1, [FromQuery] int param2)
-        //{
-        //    var results = await _trabajadorBL.GetResultsFromStoredProcedureAsync(param1, param2);
-        //    return Ok(results);
-        //}
+        #region HORARIOS
 
-        [HttpPost("GetTipoHorarios")]
-        public ResultHorario GetTipoHorarios(RequestTipoHorario requestTipoHorario)
+        [HttpPost("GetTipoHorarios")] //Obtiene los horarios por tipo
+        public ResultHorario GetTipoHorarios()
         {
 
-            return _trabajadorBL.GetResultsFromStoredProcedureAsync2(requestTipoHorario);
+            return _trabajadorBL.GetTipoHorarios();
         }
 
+        [HttpPost("InsertHorarios")] //Registra los horarios por tipo
+        public string[] InsertHorarios(RequestTipoHorario requestTipoHorario)
+        {
+
+            return _trabajadorBL.InsertHorarios(requestTipoHorario);
+        }
+
+        #endregion
+
+        #region SEDES
+
+
+        #endregion
+
+        #region TRABAJADORES
         [HttpPost("InsertTrabajador")]
-        public string InsertTrabajador(Trabajador requestTrabajador)
+        public string[] InsertTrabajador(Trabajador requestTrabajador)
         {
             return _trabajadorBL.InsertTrabajador(requestTrabajador);
         }
 
-
+        [HttpPost("ListaTrabajadores")]
+        public TrabajadorResult ListaTrabajadores(Trabajador requestTrabajador)
+        {
+            return _trabajadorBL.ListaTrabajadores(requestTrabajador);
+        }
+        #endregion
     }
 }

@@ -14,25 +14,27 @@ public class TrabajadoresBL
         _TrabajadoresDL = trabajadoresDL;
     }
 
-    //public async Task<List<TrabajadorResult>> GetResultsFromStoredProcedureAsync(string param1, int param2)
-    //{
-    //    var parameters = new[]
-    //    {
-    //        new SqlParameter("@Param1", SqlDbType.VarChar) { Value = param1 },
-    //        new SqlParameter("@Param2", SqlDbType.Int) { Value = param2 }
-    //    };
-
-    //    return await _TrabajadoresDL.ExecuteStoredProcedureAsync("MyStoredProcedure", parameters);
-    //}
-
-
-    public ResultHorario GetResultsFromStoredProcedureAsync2(RequestTipoHorario requestTipoHorario)
+    #region HORARIOS
+    public ResultHorario GetTipoHorarios()
     {
-        return _TrabajadoresDL.ExecuteStoredProcedureAsync2(requestTipoHorario);
+        return _TrabajadoresDL.GetTipoHorarios();
     }
 
-    public string InsertTrabajador(Trabajador requestTrabajador)
+    public string[] InsertHorarios(RequestTipoHorario requestTipoHorario)
+    {
+        return _TrabajadoresDL.InsertHorarios(requestTipoHorario);
+    }
+    #endregion
+
+    #region TRABAJADORES
+    public string[] InsertTrabajador(Trabajador requestTrabajador)
     {
         return _TrabajadoresDL.InsertTrabajador(requestTrabajador);
     }
+
+    public TrabajadorResult ListaTrabajadores(Trabajador requestTrabajador)
+    {
+        return _TrabajadoresDL.ListaTrabajadores(requestTrabajador);
+    }
+    #endregion
 }
