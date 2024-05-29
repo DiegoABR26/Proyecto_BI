@@ -15,10 +15,9 @@ namespace Proyect_BI.Controllers
             _trabajadorBL = trabajadoresBL;
         }
 
-        #region HORARIOS
 
-        [HttpPost("GetTipoHorarios")] //Obtiene los horarios por tipo
-        public ResultHorario GetTipoHorarios()
+        [HttpGet("GetTipoHorarios")] //Obtiene los horarios por tipo
+        public ResultHorario GetTipoHorarios()  
         {
 
             return _trabajadorBL.GetTipoHorarios();
@@ -31,10 +30,20 @@ namespace Proyect_BI.Controllers
             return _trabajadorBL.InsertHorarios(requestTipoHorario);
         }
 
-        #endregion
 
         #region SEDES
+        [HttpGet("GetSedes")] //Obtiene los horarios por tipo
+        public ListSedes GetSedes()
+        {
+            return _trabajadorBL.GetSedes();
+        }
 
+        [HttpPost("InsertSedes")] //Registra los horarios por tipo
+        public string[] InsertSedes(Sedes sedes)
+        {
+
+            return _trabajadorBL.InsertSedes(sedes);
+        }
 
         #endregion
 

@@ -14,7 +14,7 @@ public class TrabajadoresBL
         _TrabajadoresDL = trabajadoresDL;
     }
 
-    #region HORARIOS
+    
     public ResultHorario GetTipoHorarios()
     {
         return _TrabajadoresDL.GetTipoHorarios();
@@ -23,6 +23,17 @@ public class TrabajadoresBL
     public string[] InsertHorarios(RequestTipoHorario requestTipoHorario)
     {
         return _TrabajadoresDL.InsertHorarios(requestTipoHorario);
+    }
+
+    #region SEDES
+    public ListSedes GetSedes()
+    {
+        return _TrabajadoresDL.GetSedes();
+    }
+
+    public string[] InsertSedes(Sedes sedes)
+    {
+        return _TrabajadoresDL.InsertSedes(sedes);
     }
     #endregion
 
